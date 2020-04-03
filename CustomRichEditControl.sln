@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomRichEditControl", "CustomRichEditControl\CustomRichEditControl.csproj", "{A57CFA55-1B55-45AD-A77E-130A4ADEBCFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{739D6C32-EF7C-4F8E-9A45-64C57D71204A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A57CFA55-1B55-45AD-A77E-130A4ADEBCFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57CFA55-1B55-45AD-A77E-130A4ADEBCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57CFA55-1B55-45AD-A77E-130A4ADEBCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57CFA55-1B55-45AD-A77E-130A4ADEBCFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{739D6C32-EF7C-4F8E-9A45-64C57D71204A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{739D6C32-EF7C-4F8E-9A45-64C57D71204A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{739D6C32-EF7C-4F8E-9A45-64C57D71204A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{739D6C32-EF7C-4F8E-9A45-64C57D71204A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A01BBB7-1F4E-4892-815C-4B2C2BE6931E}
+	EndGlobalSection
+EndGlobal
