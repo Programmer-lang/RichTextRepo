@@ -9,6 +9,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <customcontrol:UserControl1/>
+        <customcontrol:UserControl1 VerticalAlignment="Top" Height="300" />
+        <!--<Button Content="Save" Click="BtnSave_Click"/>-->
     </Grid>
 </Window>

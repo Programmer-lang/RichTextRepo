@@ -82,5 +82,65 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Italic_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AlignCenter_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AlignJustify_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AlignLeft_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AlignRight_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BO_Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bold_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ChangeFontStyle_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FontSizeDecrease_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FontSizeIncrease_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Highlight_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IndentDecrease_RightToLeft_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IndentIncrease_RightToLeft_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InsertTable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ListBullets_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ListNumbers_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReadingDirectionLeftToRight_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ReadingDirectionRightToLeft_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Save_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Underline_16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,9 +20,19 @@ namespace TestApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public virtual TestEntity entity { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        
     }
+
+    public class TestEntity
+    {
+        public string Remarks { get; set; }
+    }
+
 }

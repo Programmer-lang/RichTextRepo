@@ -14,78 +14,79 @@
     <DockPanel >
         <ToolBar DockPanel.Dock="Top" FlowDirection="RightToLeft">
             <Button Command="ApplicationCommands.Open">
-                <Image  Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/XAF/BO_Folder.png"   Width="16" Height="16" />
+                <Image  Source="Images/BO_Folder.png"   Width="16" Height="16" />
             </Button>
             <Button Command="ApplicationCommands.Save">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Save/Save_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/Save_16x16.png" Width="16" Height="16" />
             </Button>
             <Separator />
 
             <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
             <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
             <ToggleButton Command="EditingCommands.IncreaseFontSize"  Name="IncreaseFontSize">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/FontSizeIncrease_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/FontSizeIncrease_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.DecreaseFontSize"  Name="DecreaseFontSize">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/FontSizeDecrease_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/FontSizeDecrease_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <!--<ComboBox Name="cmbFontColor" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontColor_TextChanged" />-->
             <Separator/>
             <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/Bold_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/Bold_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/Italic_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/Italic_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/Underline_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/Underline_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <Separator/>
             <ToggleButton Click="SettingsFontColor_Click"  Name="SettingsFontColor">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/ChangeFontStyle_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/ChangeFontStyle_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Click="SettingsHighlightColor_Click"  Name="SettingsHighlightColor">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/RichEdit/Highlight_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/Highlight_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <Separator />
             <ToggleButton Command="EditingCommands.ToggleBullets" Name="btnBulletList">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/ListBullets_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/ListBullets_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.ToggleNumbering" Name="btnNumberList">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/ListNumbers_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/ListNumbers_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <Separator/>
             <ToggleButton Command="EditingCommands.AlignLeft" Name="btnAlignLeft">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/AlignLeft_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/AlignLeft_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.AlignRight" Name="btnAlignRight">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/AlignRight_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/AlignRight_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.AlignCenter" Name="btnAlignCenter">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/AlignCenter_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/AlignCenter_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.AlignJustify" Name="btnAlignJustify">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/AlignJustify_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/AlignJustify_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <Separator/>
             <ToggleButton Command="EditingCommands.DecreaseIndentation"  Name="btnDecIndent" >
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/IndentDecrease_RightToLeft_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/IndentDecrease_RightToLeft_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.IncreaseIndentation"  Name="btnIncIndent" >
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/Format/IndentIncrease_RightToLeft_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/IndentIncrease_RightToLeft_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Click="BtnLtr_Click" Name="btnLtr">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/RichEdit/ReadingDirectionLeftToRight_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/ReadingDirectionLeftToRight_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Click="BtnRtl_Click"  Name="btnRtl">
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/RichEdit/ReadingDirectionRightToLeft_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/ReadingDirectionRightToLeft_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <Separator/>
-            <ToggleButton Click="BtnInsertTable_Click"  Name="btnInsertTable" >
-                <Image Source="pack://application:,,,/DevExpress.Images.v19.2;component/Images/RichEdit/InsertTable_16x16.png" Width="16" Height="16" />
+            <ToggleButton Click="BtnInsertTable_Click"  Name="btnInsertTable" >                
+                <Image Source="Images/InsertTable_16x16.png" Width="16" Height="16" />
             </ToggleButton>
         </ToolBar>
-        <RichTextBox Name="rtbEditor" AcceptsTab="True" SelectionChanged="rtbEditor_SelectionChanged" HorizontalAlignment="Right" />
+        <RichTextBox Name="rtbEditor" AcceptsTab="True" SelectionChanged="rtbEditor_SelectionChanged" HorizontalAlignment="Right"/>
+        
         
     </DockPanel>
 
