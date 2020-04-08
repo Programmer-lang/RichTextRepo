@@ -7,9 +7,12 @@
         xmlns:customcontrol="clr-namespace:CustomRichEditControl;assembly=CustomRichEditControl"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:TestConverter x:Key="TestConv" />
+    </Window.Resources>
     <Grid>
 
-        <customcontrol:UserControl1 VerticalAlignment="Top" Height="300" />
-        <!--<Button Content="Save" Click="BtnSave_Click"/>-->
+        <customcontrol:UserControl1 VerticalAlignment="Top" Height="300" Text="{Binding TestText,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,Converter={StaticResource TestConv } }"/>
+        <Button Content="Save" Click="BtnSave_Click" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

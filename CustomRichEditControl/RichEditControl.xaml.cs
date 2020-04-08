@@ -23,11 +23,20 @@ namespace CustomRichEditControl
     /// </summary>
     public partial class UserControl1 : System.Windows.Controls.UserControl
     {
+        public static readonly DependencyProperty TextProperty =
+         DependencyProperty.Register("Text", typeof(string), typeof(UserControl1), new UIPropertyMetadata(null));
+
+        public  virtual string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
         public UserControl1()
         {
             InitializeComponent();
             cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
+            rtbEditor.FlowDirection = System.Windows.FlowDirection.RightToLeft;
         }
         private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
         {
@@ -46,27 +55,25 @@ namespace CustomRichEditControl
 
         private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            System.Windows.Forms.OpenFileDialog OpenFiledlg = new System.Windows.Forms.OpenFileDialog();
+            Microsoft.Win32.OpenFileDialog OpenFiledlg = new Microsoft.Win32.OpenFileDialog();
             OpenFiledlg.DefaultExt = "All files (*.*)|*.*";
-            OpenFiledlg.Filter = "RTF Files(*.rtf)|*.rtf |All files (*.*)|*.*";
-            //dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
-            if (OpenFiledlg.ShowDialog() == DialogResult.Yes & OpenFiledlg.FileName.Length > 0)
+            //OpenFiledlg.Filter = "RTF Files(*.rtf)|*.rtf |All files (*.*)|*.*";
+            OpenFiledlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
+            if (OpenFiledlg.ShowDialog() ==true & OpenFiledlg.FileName.Length > 0)
             {
-                //string text = File.ReadAllText(OpenFiledlg.FileName);
-
                 FileStream fileStream = new FileStream(OpenFiledlg.FileName, FileMode.Open);
                 TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-                range.Load(fileStream, "1");
+                range.Load(fileStream, System.Windows.DataFormats.Rtf);
 
-                //rtbEditor.AppendText(text);
+                
             }
         }
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            System.Windows.Forms.SaveFileDialog dlg = new System.Windows.Forms.SaveFileDialog();
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
-            if (dlg.ShowDialog() == DialogResult.Yes)
+            if (dlg.ShowDialog() == true)
             {
                 FileStream fileStream = new FileStream(dlg.FileName, FileMode.Create);
                 TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);

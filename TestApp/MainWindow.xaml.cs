@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +21,44 @@ namespace TestApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public virtual TestEntity entity { get; set; }
+        public virtual string TestText { get; set; }
+        
 
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
-        
+       
+
+        public void TestTextChanged()
+        {
+            MessageBox.Show(TestText);
+        }
+         
+       private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(TestText);
+        }
     }
 
-    public class TestEntity
+    //public class TestEntity
+    //{
+    //    public string Remarks { get; set; }
+    //}
+
+    public class TestConverter : IValueConverter
     {
-        public string Remarks { get; set; }
-    }
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            
+            return value;
+        }
 
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return value;
+        }
+    }
 }
