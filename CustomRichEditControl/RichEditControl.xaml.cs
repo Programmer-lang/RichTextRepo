@@ -26,7 +26,7 @@ namespace CustomRichEditControl
         public static readonly DependencyProperty TextProperty =
          DependencyProperty.Register("Text", typeof(string), typeof(UserControl1), new UIPropertyMetadata(null));
 
-        public  virtual string Text
+        public  string Text
         {
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
@@ -34,6 +34,7 @@ namespace CustomRichEditControl
         public UserControl1()
         {
             InitializeComponent();
+            this.DataContext = this;
             cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
             rtbEditor.FlowDirection = System.Windows.FlowDirection.RightToLeft;
