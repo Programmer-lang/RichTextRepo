@@ -19,10 +19,21 @@ namespace TestApp
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window,INotifyPropertyChanged
     {
-        public virtual string TestText { get; set; }
-        
+        private string _TestText;
+        public virtual string TestText
+        {
+            get
+            {
+                return _TestText;
+            }
+            set
+            {
+                _TestText = value;
+                RaisePropertyChanged("TestText");
+            }
+        }        
 
         public MainWindow()
         {
@@ -30,7 +41,14 @@ namespace TestApp
             
         }
 
-       
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void RaisePropertyChanged(String propertyName)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
 
         public void TestTextChanged()
         {
