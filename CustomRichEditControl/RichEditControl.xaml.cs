@@ -29,8 +29,27 @@ namespace CustomRichEditControl
         public  string Text
         {
             get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            set
+            {
+                SetValue(TextProperty, value);
+               
+            }
         }
+
+        public static readonly DependencyProperty RtfTextProperty =
+         DependencyProperty.Register("RtfText", typeof(string), typeof(UserControl1), new UIPropertyMetadata(null));
+
+        public string RtfText
+        {
+            get { return (string)GetValue(RtfTextProperty); }
+            set { SetValue(RtfTextProperty, value); }
+        }
+
+        //public string GetRtfText()
+        //{
+        //    return RichTextBoxExtensions.GetRtf(rtbEditor);
+        //}
+
         public UserControl1()
         {
             InitializeComponent();
@@ -64,10 +83,9 @@ namespace CustomRichEditControl
             {
                 FileStream fileStream = new FileStream(OpenFiledlg.FileName, FileMode.Open);
                 TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
-                range.Load(fileStream, System.Windows.DataFormats.Rtf);
-
-                
-            }
+                range.Load(fileStream, System.Windows.DataFormats.Rtf);                
+            }             
+            
         }
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -142,10 +160,34 @@ namespace CustomRichEditControl
 
         }
 
+        private void RtbEditor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RtfText = RichTextBoxExtensions.GetRtf(rtbEditor.Document);
+        }
+
+        //private void RtbEditor_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    RtfText = RichTextBoxExtensions.GetRtf(rtbEditor.Document);
+        //}
+
         //private void BtnDecIndent_Click(object sender, RoutedEventArgs e)
         //{
         //    rtbEditor.Selection.ApplyPropertyValue(, FlowDirection.LeftToRight);
         //}
-    
-}
+
+    }
+
+    public static class RichTextBoxExtensions
+    {
+        public static string GetRtf(FlowDocument document)
+        {
+            TextRange tr = new TextRange(document.ContentStart, document.ContentEnd);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                tr.Save(ms, System.Windows.DataFormats.Rtf);
+                return ASCIIEncoding.Default.GetString(ms.ToArray());
+            }
+        }
+        
+    }
 }

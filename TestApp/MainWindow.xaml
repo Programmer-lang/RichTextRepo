@@ -12,7 +12,9 @@
     </Window.Resources>-->
     <Grid>
 
-        <customcontrol:UserControl1 VerticalAlignment="Top" Height="300" Text="{Binding TestText, RelativeSource={RelativeSource AncestorType=Window},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay }"/>
+        <customcontrol:UserControl1 VerticalAlignment="Top" Height="300" 
+                                    Text="{Binding TestText, RelativeSource={RelativeSource AncestorType=Window},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay }"
+                                    RtfText="{Binding RtfTestText, RelativeSource={RelativeSource AncestorType=Window},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay }"/>
         <Button Content="Save" Click="BtnSave_Click" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

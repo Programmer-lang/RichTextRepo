@@ -21,19 +21,21 @@ namespace TestApp
     /// </summary>
     public partial class MainWindow : Window,INotifyPropertyChanged
     {
-        private string _TestText;
-        public virtual string TestText
-        {
-            get
-            {
-                return _TestText;
-            }
-            set
-            {
-                _TestText = value;
-                RaisePropertyChanged("TestText");
-            }
-        }        
+        //private string _TestText;
+        public virtual string TestText { get; set; }
+
+        public virtual string RtfTestText { get; set; }
+        //{
+        //    get
+        //    {
+        //        return _TestText;
+        //    }
+        //    set
+        //    {
+        //        _TestText = value;
+        //        RaisePropertyChanged("TestText");
+        //    }
+        //}        
 
         public MainWindow()
         {
@@ -50,33 +52,31 @@ namespace TestApp
             }
         }
 
-        public void TestTextChanged()
-        {
-            MessageBox.Show(TestText);
-        }
+        //public void TestTextChanged()
+        //{
+        //    MessageBox.Show(TestText);
+        //}
          
        private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(TestText);
+            MessageBox.Show(RtfTestText);
         }
     }
 
-    //public class TestEntity
+
+    //public class TestConverter : IValueConverter
     //{
-    //    public string Remarks { get; set; }
+    //    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    //    {
+            
+    //        return value;
+    //    }
+
+    //    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    //    {
+    //        return value;
+    //    }
     //}
 
-    public class TestConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            
-            return value;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            return value;
-        }
-    }
 }
