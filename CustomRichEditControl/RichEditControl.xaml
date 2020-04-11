@@ -23,12 +23,12 @@
 
             <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="cmbFontFamily_SelectionChanged" />
             <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontSize_TextChanged" />
-            <ToggleButton Command="EditingCommands.IncreaseFontSize"  Name="IncreaseFontSize">
+            <Button Command="EditingCommands.IncreaseFontSize"  Name="IncreaseFontSize">
                 <Image Source="Images/FontSizeIncrease_16x16.png" Width="16" Height="16" />
-            </ToggleButton>
-            <ToggleButton Command="EditingCommands.DecreaseFontSize"  Name="DecreaseFontSize">
+            </Button>
+            <Button Command="EditingCommands.DecreaseFontSize"  Name="DecreaseFontSize">
                 <Image Source="Images/FontSizeDecrease_16x16.png" Width="16" Height="16" />
-            </ToggleButton>
+            </Button>
             <!--<ComboBox Name="cmbFontColor" Width="50" IsEditable="True" TextBoxBase.TextChanged="cmbFontColor_TextChanged" />-->
             <Separator/>
             <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold">
@@ -48,12 +48,18 @@
                 <Image Source="Images/Highlight_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <Separator />
-            <ToggleButton Command="EditingCommands.ToggleBullets" Name="btnBulletList">
+            <RadioButton GroupName="List" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Command="EditingCommands.ToggleBullets" Name="btnBulletList">
+                <Image Source="Images/ListBullets_16x16.png" Width="16" Height="16" />
+            </RadioButton>
+            <RadioButton GroupName="List" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Command="EditingCommands.ToggleNumbering" Name="btnNumberList">
+                <Image Source="Images/ListNumbers_16x16.png" Width="16" Height="16" />
+            </RadioButton>
+            <!--<ToggleButton Command="EditingCommands.ToggleBullets" Name="btnBulletList">
                 <Image Source="Images/ListBullets_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.ToggleNumbering" Name="btnNumberList">
                 <Image Source="Images/ListNumbers_16x16.png" Width="16" Height="16" />
-            </ToggleButton>
+            </ToggleButton>-->
             <Separator/>
             
             <RadioButton GroupName="Align" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Command="EditingCommands.AlignRight" Name="btnAlignRight">
