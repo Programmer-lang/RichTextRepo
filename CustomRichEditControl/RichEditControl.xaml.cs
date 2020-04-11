@@ -162,7 +162,9 @@ namespace CustomRichEditControl
 
         private void RtbEditor_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Text = RichTextBoxExtensions.GetPlainText(rtbEditor.Document);
             RtfText = RichTextBoxExtensions.GetRtf(rtbEditor.Document);
+            
         }
 
         //private void RtbEditor_LostFocus(object sender, RoutedEventArgs e)
@@ -188,6 +190,11 @@ namespace CustomRichEditControl
                 return ASCIIEncoding.Default.GetString(ms.ToArray());
             }
         }
-        
+
+        public static string GetPlainText(FlowDocument document)
+        {
+          return  new TextRange(document.ContentStart, document.ContentEnd).Text;
+        }
+
     }
 }
