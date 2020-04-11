@@ -55,10 +55,23 @@
                 <Image Source="Images/ListNumbers_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <Separator/>
-            <ToggleButton Command="EditingCommands.AlignLeft" Name="btnAlignLeft">
+            
+            <RadioButton GroupName="Align" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Command="EditingCommands.AlignRight" Name="btnAlignRight">
+                <Image Source="Images/AlignRight_16x16.png" Width="16" Height="16" />
+            </RadioButton>
+            <RadioButton GroupName="Align" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Command="EditingCommands.AlignLeft" Name="btnAlignLeft">
                 <Image Source="Images/AlignLeft_16x16.png" Width="16" Height="16" />
-            </ToggleButton>
-            <ToggleButton Command="EditingCommands.AlignRight" Name="btnAlignRight">
+            </RadioButton>
+            <RadioButton GroupName="Align" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Command="EditingCommands.AlignCenter" Name="btnAlignCenter">
+                <Image Source="Images/AlignCenter_16x16.png" Width="16" Height="16" />
+            </RadioButton>
+            <RadioButton GroupName="Align" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Command="EditingCommands.AlignJustify" Name="btnAlignJustify">
+                <Image Source="Images/AlignJustify_16x16.png" Width="16" Height="16" />
+            </RadioButton>
+            <!--<ToggleButton Command="EditingCommands.AlignLeft" Name="btnAlignLeft">
+                <Image Source="Images/AlignLeft_16x16.png" Width="16" Height="16" />
+            </ToggleButton>-->
+            <!--<ToggleButton Command="EditingCommands.AlignRight" Name="btnAlignRight">
                 <Image Source="Images/AlignRight_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.AlignCenter" Name="btnAlignCenter">
@@ -66,20 +79,32 @@
             </ToggleButton>
             <ToggleButton Command="EditingCommands.AlignJustify" Name="btnAlignJustify">
                 <Image Source="Images/AlignJustify_16x16.png" Width="16" Height="16" />
-            </ToggleButton>
+            </ToggleButton>-->
             <Separator/>
-            <ToggleButton Command="EditingCommands.DecreaseIndentation"  Name="btnDecIndent" >
+            <Button Background="Transparent" BorderThickness="0" Command="EditingCommands.IncreaseIndentation"  Name="btnIncIndent">
+                <Image Source="Images/IndentIncrease_RightToLeft_16x16.png" Width="16" Height="16" />
+            </Button>
+            <Button Background="Transparent" BorderThickness="0" Command="EditingCommands.DecreaseIndentation"  Name="btnDecIndent">
+                <Image Source="Images/IndentDecrease_RightToLeft_16x16.png" Width="16" Height="16" />
+            </Button>
+            <!--<ToggleButton Command="EditingCommands.DecreaseIndentation"  Name="btnDecIndent" >
                 <Image Source="Images/IndentDecrease_RightToLeft_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Command="EditingCommands.IncreaseIndentation"  Name="btnIncIndent" >
                 <Image Source="Images/IndentIncrease_RightToLeft_16x16.png" Width="16" Height="16" />
-            </ToggleButton>
-            <ToggleButton Click="BtnLtr_Click" Name="btnLtr">
+            </ToggleButton>-->
+            <RadioButton GroupName="ReadingDirection" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Click="BtnRtl_Click"  Name="btnRtl">
+                <Image Source="Images/ReadingDirectionLeftToRight_16x16.png" Width="16" Height="16" />
+            </RadioButton>
+            <RadioButton GroupName="ReadingDirection" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Click="BtnLtr_Click" Name="btnLtr">
+                <Image Source="Images/ReadingDirectionRightToLeft_16x16.png" Width="16" Height="16" />
+            </RadioButton>
+            <!--<ToggleButton Click="BtnLtr_Click" Name="btnLtr">
                 <Image Source="Images/ReadingDirectionLeftToRight_16x16.png" Width="16" Height="16" />
             </ToggleButton>
             <ToggleButton Click="BtnRtl_Click"  Name="btnRtl">
                 <Image Source="Images/ReadingDirectionRightToLeft_16x16.png" Width="16" Height="16" />
-            </ToggleButton>
+            </ToggleButton>-->
             <Separator/>
             <ToggleButton Click="BtnInsertTable_Click"  Name="btnInsertTable" >                
                 <Image Source="Images/InsertTable_16x16.png" Width="16" Height="16" />
