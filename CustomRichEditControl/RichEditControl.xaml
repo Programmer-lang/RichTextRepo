@@ -100,10 +100,10 @@
                 <Image Source="Images/IndentIncrease_RightToLeft_16x16.png" Width="16" Height="16" />
             </ToggleButton>-->
             <RadioButton GroupName="ReadingDirection" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Click="BtnRtl_Click"  Name="btnRtl">
-                <Image Source="Images/ReadingDirectionLeftToRight_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/ReadingDirectionRightToLeft_16x16.png" Width="16" Height="16" />
             </RadioButton>
             <RadioButton GroupName="ReadingDirection" Background="Transparent" BorderThickness="0" Style="{StaticResource {x:Type ToggleButton}}" Click="BtnLtr_Click" Name="btnLtr">
-                <Image Source="Images/ReadingDirectionRightToLeft_16x16.png" Width="16" Height="16" />
+                <Image Source="Images/ReadingDirectionLeftToRight_16x16.png" Width="16" Height="16" />
             </RadioButton>
             <!--<ToggleButton Click="BtnLtr_Click" Name="btnLtr">
                 <Image Source="Images/ReadingDirectionLeftToRight_16x16.png" Width="16" Height="16" />
@@ -116,7 +116,7 @@
                 <Image Source="Images/InsertTable_16x16.png" Width="16" Height="16" />
             </ToggleButton>
         </ToolBar>
-        <RichTextBox Name="rtbEditor"  TextChanged="RtbEditor_TextChanged" AcceptsTab="True" SelectionChanged="rtbEditor_SelectionChanged" HorizontalAlignment="Right" Margin="0,13,0,-13"/>
+        <RichTextBox Name="rtbEditor"  TextChanged="RtbEditor_TextChanged" AcceptsTab="True" SelectionChanged="rtbEditor_SelectionChanged" HorizontalAlignment="Right" Margin="0,34,0,-34"/>
         <!--<FlowDocument>
                 <Paragraph>
                     <Run Text="{Binding Text }"/>
