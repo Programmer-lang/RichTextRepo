@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataFormats = System.Windows.DataFormats;
 
 namespace CustomRichEditControl
 {
@@ -28,11 +29,16 @@ namespace CustomRichEditControl
 
         public  string Text
         {
-            get { return (string)GetValue(TextProperty); }
+            get
+            {
+                //return (string)GetValue(TextProperty);
+                return RichTextBoxExtensions.GetText(rtbEditor.Document);
+            }
             set
             {
                 SetValue(TextProperty, value);
-               
+                if(!bDisableSet)
+                    RichTextBoxExtensions.SetText(rtbEditor.Document, value);
             }
         }
 
@@ -41,9 +47,20 @@ namespace CustomRichEditControl
 
         public string RtfText
         {
-            get { return (string)GetValue(RtfTextProperty); }
-            set { SetValue(RtfTextProperty, value); }
+            get
+            {
+                //return (string)GetValue(RtfTextProperty);
+                return RichTextBoxExtensions.GetRtfText(rtbEditor.Document);
+            }
+            set
+            {
+                SetValue(RtfTextProperty, value);
+                if(!bDisableSet)
+                    RichTextBoxExtensions.SetRtfText(rtbEditor.Document, value);
+            }
         }
+
+        public bool bDisableSet { get; private set; } = false;
 
         //public string GetRtfText()
         //{
@@ -162,9 +179,10 @@ namespace CustomRichEditControl
 
         private void RtbEditor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Text = RichTextBoxExtensions.GetPlainText(rtbEditor.Document);
-            RtfText = RichTextBoxExtensions.GetRtf(rtbEditor.Document);
-            
+            bDisableSet = true;
+            Text = RichTextBoxExtensions.GetText(rtbEditor.Document);
+            RtfText = RichTextBoxExtensions.GetRtfText(rtbEditor.Document);
+            bDisableSet = false;
         }
 
         //private void RtbEditor_LostFocus(object sender, RoutedEventArgs e)
@@ -181,7 +199,7 @@ namespace CustomRichEditControl
 
     public static class RichTextBoxExtensions
     {
-        public static string GetRtf(FlowDocument document)
+        public static string GetRtfText(FlowDocument document)
         {
             TextRange tr = new TextRange(document.ContentStart, document.ContentEnd);
             using (MemoryStream ms = new MemoryStream())
@@ -191,9 +209,37 @@ namespace CustomRichEditControl
             }
         }
 
-        public static string GetPlainText(FlowDocument document)
+        public static void SetRtfText(FlowDocument document, string text)
         {
-          return  new TextRange(document.ContentStart, document.ContentEnd).Text;
+            try
+            {
+                if (String.IsNullOrEmpty(text))
+                {
+                    document.Blocks.Clear();
+                }
+                else
+                {
+                    TextRange tr = new TextRange(document.ContentStart, document.ContentEnd);
+                    using (MemoryStream ms = new MemoryStream(Encoding.ASCII.GetBytes(text)))
+                    {
+                        tr.Load(ms, DataFormats.Rtf);
+                    }
+                }
+            }
+            catch
+            {
+                throw new InvalidDataException("Data provided is not in the correct RTF format.");
+            }
+        }
+
+        public static string GetText(FlowDocument document)
+        {
+           return new TextRange(document.ContentStart, document.ContentEnd).Text;
+        }
+
+        public static void SetText(FlowDocument document, string text)
+        {
+            new TextRange(document.ContentStart, document.ContentEnd).Text = text;
         }
 
     }

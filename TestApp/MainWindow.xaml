@@ -21,6 +21,12 @@
             </dxmvvm:Interaction.Behaviors>
             
         </customcontrol:UserControl1>
-        <Button Content="Save" Click="BtnSave_Click" VerticalAlignment="Bottom"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Content="SaveIntoEntity1" Click="Btn1Save_Click" />
+            <Button Content="SaveIntoEntity2" Click="Btn2Save_Click" />
+            <Button Content="LoadIntoEntity1" Click="Btn1Load_Click"  />
+            <Button Content="LoadIntoEntity2" Click="Btn2Load_Click" />
+        </StackPanel>
+        
     </Grid>
 </Window>
