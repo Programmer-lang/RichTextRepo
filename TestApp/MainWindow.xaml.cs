@@ -78,7 +78,6 @@ namespace TestApp
             RtfTestText = Entity1.RtfText;
             RaisePropertyChanged("TestText");
             RaisePropertyChanged("RtfTestText");
-
         }
 
         private void Btn2Load_Click(object sender, RoutedEventArgs e)
@@ -91,19 +90,19 @@ namespace TestApp
     }
 
 
-    //public class TestConverter : IValueConverter
-    //{
-    //    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-    //    {
+    public class TestConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
 
-    //        return value;
-    //    }
+            return value;
+        }
 
-    //    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-    //    {
-    //        return value;
-    //    }
-    //}
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return value;
+        }
+    }
 
     public class FormattedTextEntity
     {

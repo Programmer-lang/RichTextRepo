@@ -8,25 +8,25 @@
         xmlns:customcontrol="clr-namespace:CustomRichEditControl;assembly=CustomRichEditControl"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <!--<Window.Resources>
+    <Window.Resources>
         <local:TestConverter x:Key="TestConv" />
-    </Window.Resources>-->
+    </Window.Resources>
     <Grid>
 
         <customcontrol:UserControl1 VerticalAlignment="Top" Height="300" 
-                                    Text="{Binding TestText, RelativeSource={RelativeSource AncestorType=Window},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay }"
+                                    Text="{Binding TestText,Converter={StaticResource TestConv},   RelativeSource={RelativeSource AncestorType=Window},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay }" 
                                     RtfText="{Binding RtfTestText, RelativeSource={RelativeSource AncestorType=Window},UpdateSourceTrigger=PropertyChanged,Mode=TwoWay }" Margin="0,4,0,0">
             <dxmvvm:Interaction.Behaviors>
                 <dxmvvm:FocusBehavior/>
             </dxmvvm:Interaction.Behaviors>
-            
+
         </customcontrol:UserControl1>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <Button Content="SaveIntoEntity1" Click="Btn1Save_Click" />
             <Button Content="SaveIntoEntity2" Click="Btn2Save_Click" />
-            <Button Content="LoadIntoEntity1" Click="Btn1Load_Click"  />
-            <Button Content="LoadIntoEntity2" Click="Btn2Load_Click" />
+            <Button Content="LoadEntity1" Click="Btn1Load_Click"  />
+            <Button Content="LoadEntity2" Click="Btn2Load_Click" />
         </StackPanel>
-        
+
     </Grid>
 </Window>
