@@ -74,7 +74,7 @@ namespace TestApp
 
         private void Btn1Load_Click(object sender, RoutedEventArgs e)
         {
-            TestText = Entity1.PlainText;
+            //TestText = Entity1.PlainText;
             RtfTestText = Entity1.RtfText;
             RaisePropertyChanged("TestText");
             RaisePropertyChanged("RtfTestText");
@@ -83,7 +83,7 @@ namespace TestApp
 
         private void Btn2Load_Click(object sender, RoutedEventArgs e)
         {
-            TestText = Entity2.PlainText;
+            //TestText = Entity2.PlainText;
             RtfTestText = Entity2.RtfText;
             RaisePropertyChanged("TestText");
             RaisePropertyChanged("RtfTestText");

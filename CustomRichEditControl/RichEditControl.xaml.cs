@@ -25,42 +25,77 @@ namespace CustomRichEditControl
     public partial class UserControl1 : System.Windows.Controls.UserControl
     {
         public static readonly DependencyProperty TextProperty =
-         DependencyProperty.Register("Text", typeof(string), typeof(UserControl1), new UIPropertyMetadata(null));
+         DependencyProperty.Register("Text", typeof(string), typeof(UserControl1), new PropertyMetadata(new PropertyChangedCallback(OnTextChanged)));
 
-        public  string Text
+
+        //public  string Text
+        //{
+        //    get
+        //    {
+        //        //return (string)GetValue(TextProperty);
+        //        return RichTextBoxExtensions.GetText(rtbEditor.Document);
+        //    }
+        //    set
+        //    {
+        //        SetValue(TextProperty, value);
+        //        if(!bDisableSet)
+        //            RichTextBoxExtensions.SetText(rtbEditor.Document, value);
+        //    }
+        //}
+
+        public string Text
         {
-            get
-            {
-                //return (string)GetValue(TextProperty);
-                return RichTextBoxExtensions.GetText(rtbEditor.Document);
-            }
+            get { return (string)GetValue(TextProperty); }
             set
             {
                 SetValue(TextProperty, value);
-                if(!bDisableSet)
-                    RichTextBoxExtensions.SetText(rtbEditor.Document, value);
+
             }
         }
 
         public static readonly DependencyProperty RtfTextProperty =
-         DependencyProperty.Register("RtfText", typeof(string), typeof(UserControl1), new UIPropertyMetadata(null));
+         DependencyProperty.Register("RtfText", typeof(string), typeof(UserControl1), new PropertyMetadata(new PropertyChangedCallback(OnRTFTextChanged)));
+
 
         public string RtfText
         {
-            get
-            {
-                //return (string)GetValue(RtfTextProperty);
-                return RichTextBoxExtensions.GetRtfText(rtbEditor.Document);
-            }
-            set
-            {
-                SetValue(RtfTextProperty, value);
-                if(!bDisableSet)
-                    RichTextBoxExtensions.SetRtfText(rtbEditor.Document, value);
-            }
+            get { return (string)GetValue(RtfTextProperty); }
+            set { SetValue(RtfTextProperty, value); }
         }
 
-        public bool bDisableSet { get; private set; } = false;
+
+        private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = (UserControl1)d;
+
+            if (!bDisableSet)
+                   RichTextBoxExtensions.SetText(control.rtbEditor.Document, e.NewValue.ToString());
+        }
+
+        private static void OnRTFTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = (UserControl1)d;
+
+            if (!bDisableSet)
+                   RichTextBoxExtensions.SetRtfText(control.rtbEditor.Document, e.NewValue.ToString());
+        }
+
+        //public string RtfText
+        //{
+        //    get
+        //    {
+        //        //return (string)GetValue(RtfTextProperty);
+        //        return RichTextBoxExtensions.GetRtfText(rtbEditor.Document);
+        //    }
+        //    set
+        //    {
+        //        SetValue(RtfTextProperty, value);
+        //        if(!bDisableSet)
+        //            RichTextBoxExtensions.SetRtfText(rtbEditor.Document, value);
+        //    }
+        //}
+
+        public static bool bDisableSet { get; private set; } = false;
 
         //public string GetRtfText()
         //{
