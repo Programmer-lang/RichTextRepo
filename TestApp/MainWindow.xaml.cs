@@ -69,7 +69,7 @@ namespace TestApp
         {            
             Entity2 = new FormattedTextEntity();
             Entity2.PlainText = TestText;
-            Entity2.RtfText = RtfTestText;
+           // Entity2.RtfText = RtfTestText;
         }
 
         private void Btn1Load_Click(object sender, RoutedEventArgs e)

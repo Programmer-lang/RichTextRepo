@@ -80,10 +80,11 @@ namespace CustomRichEditControl
         {
             var control = (UserControl1)d;
 
-            if (!bDisableSet)
+            if (!bDisableSet && (e.NewValue != null))
             {
                 bDisableTextChange = true;
-                RichTextBoxExtensions.SetRtfText(control.rtbEditor.Document, e.NewValue.ToString());
+              
+                RichTextBoxExtensions.SetRtfText(control.rtbEditor.Document, e.NewValue?.ToString());
                 bDisableTextChange = false;
             }
         }
