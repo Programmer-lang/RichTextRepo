@@ -69,7 +69,11 @@ namespace CustomRichEditControl
             var control = (UserControl1)d;
 
             if (!bDisableSet)
-                   RichTextBoxExtensions.SetText(control.rtbEditor.Document, e.NewValue.ToString());
+            {
+                bDisableTextChange = true;
+                RichTextBoxExtensions.SetText(control.rtbEditor.Document, e.NewValue?.ToString());
+                bDisableTextChange = false;
+            }
         }
 
         private static void OnRTFTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -77,7 +81,11 @@ namespace CustomRichEditControl
             var control = (UserControl1)d;
 
             if (!bDisableSet)
-                   RichTextBoxExtensions.SetRtfText(control.rtbEditor.Document, e.NewValue.ToString());
+            {
+                bDisableTextChange = true;
+                RichTextBoxExtensions.SetRtfText(control.rtbEditor.Document, e.NewValue.ToString());
+                bDisableTextChange = false;
+            }
         }
 
         //public string RtfText
@@ -96,6 +104,8 @@ namespace CustomRichEditControl
         //}
 
         public static bool bDisableSet { get; private set; } = false;
+        public static bool bDisableTextChange { get; private set; } = false;
+
 
         //public string GetRtfText()
         //{
@@ -109,7 +119,14 @@ namespace CustomRichEditControl
             cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
             rtbEditor.FlowDirection = System.Windows.FlowDirection.RightToLeft;
+            Loaded += OnLoaded;
         }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            rtbEditor.Focus();
+        }
+
         private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
         {
             object temp = rtbEditor.Selection.GetPropertyValue(Inline.FontWeightProperty);
@@ -214,10 +231,13 @@ namespace CustomRichEditControl
 
         private void RtbEditor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            bDisableSet = true;
-            Text = RichTextBoxExtensions.GetText(rtbEditor.Document);
-            RtfText = RichTextBoxExtensions.GetRtfText(rtbEditor.Document);
-            bDisableSet = false;
+            if (!bDisableTextChange)
+            {
+                bDisableSet = true;
+                Text = RichTextBoxExtensions.GetText(rtbEditor.Document);
+                RtfText = RichTextBoxExtensions.GetRtfText(rtbEditor.Document);
+                bDisableSet = false;
+            }
         }
 
         //private void RtbEditor_LostFocus(object sender, RoutedEventArgs e)

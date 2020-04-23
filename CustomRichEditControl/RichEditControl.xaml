@@ -116,7 +116,7 @@
                 <Image Source="Images/InsertTable_16x16.png" Width="16" Height="16" />
             </ToggleButton>
         </ToolBar>
-        <RichTextBox Name="rtbEditor"  TextChanged="RtbEditor_TextChanged" AcceptsTab="True" SelectionChanged="rtbEditor_SelectionChanged" HorizontalAlignment="Right" Margin="0,34,0,-34"/>
+        <RichTextBox Name="rtbEditor"  TextChanged="RtbEditor_TextChanged" AcceptsTab="True" SelectionChanged="rtbEditor_SelectionChanged" HorizontalAlignment="Right" Margin="0,0,0,-34"/>
         <!--<FlowDocument>
                 <Paragraph>
                     <Run Text="{Binding Text }"/>

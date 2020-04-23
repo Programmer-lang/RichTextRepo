@@ -82,7 +82,7 @@ namespace TestApp
 
         private void Btn2Load_Click(object sender, RoutedEventArgs e)
         {
-            //TestText = Entity2.PlainText;
+            TestText = Entity2.PlainText;
             RtfTestText = Entity2.RtfText;
             RaisePropertyChanged("TestText");
             RaisePropertyChanged("RtfTestText");
