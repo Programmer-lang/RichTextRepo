@@ -295,7 +295,15 @@ namespace CustomRichEditControl
 
         public static void SetText(FlowDocument document, string text)
         {
-            new TextRange(document.ContentStart, document.ContentEnd).Text = text;
+            if (String.IsNullOrEmpty(text))
+            {
+                document.Blocks.Clear();
+            }
+            else
+            {
+                new TextRange(document.ContentStart, document.ContentEnd).Text = text;
+
+            }
         }
 
     }
